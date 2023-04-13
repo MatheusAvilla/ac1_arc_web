@@ -21,17 +21,17 @@ public class ProfessorController {
     private ProfessorRepository professorRepository;
 
     @GetMapping("/findAll")
-    public List<Professor> findAll() {
+    public List<Professor> obterTodos() {
         return professorRepository.findAll();
     }
     
     @PostMapping("/create")
-    public Professor createProfessor(@RequestBody Professor professor) {
+    public Professor criarProfessor(@RequestBody Professor professor) {
         return professorRepository.save(professor);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteProfessor(@PathVariable long id) {
+    public void deletarProfessor(@PathVariable long id) {
         Optional<Professor> professor = professorRepository.findById(id);
         professor.ifPresent(p -> professorRepository.delete(p));
     }

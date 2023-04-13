@@ -36,4 +36,11 @@ public class AgendaController {
         agenda.ifPresent(a -> agendaRepository.delete(a));
     }
 
+    public boolean validateProfessor(Agenda agenda) {
+        if(agenda.getCurso().getProfessores() != null) {
+            return true;
+        }
+        return false;
+    }
+
 }
